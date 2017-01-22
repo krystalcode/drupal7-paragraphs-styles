@@ -1,0 +1,10 @@
+name = Paragraphs Styles
+description = Allows editors to apply styles to paragraphs.
+package = Paragraphs
+dependencies[] = list
+dependencies[] = options
+dependencies[] = paragraphs
+core = 7.x
+
+files[] = tests/paragraphs_styles.test
+version = "7.x-1.x-dev"

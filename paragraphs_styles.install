@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Paragraphs Styles module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function paragraphs_styles_install() {
+  field_info_cache_clear();
+}
+
+/**
+ * Implements hook_field_schema().
+ */
+function paragraphs_styles_field_schema($field) {
+  $columns = array();
+
+  switch ($field['type']) {
+    case PARAGRAPHS_STYLES_FIELD_TYPE_LIST:
+      $columns = array(
+        'value' => array(
+          'type' => 'varchar',
+          'length' => 32,
+          'not null' => FALSE,
+        ),
+      );
+      break;
+  }
+
+  return array(
+    'columns' => $columns,
+    'indexes' => array(
+      'value' => array('value'),
+    ),
+  );
+}
